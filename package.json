@@ -8,7 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "build": {
+    "env": {
+      "NPM_REGISTRY": "https://registry.npmjs.org/"
+    }
+  },
   "dependencies": {
+    "@ungap/structured-clone": "github:ungap/structured-clone",
     "next": "14.2.2",
     "react": "^18",
     "react-dom": "^18",

@@ -71,9 +71,9 @@ export default function Essentials() {
             <h3 className="font-semibold mb-4">Kids</h3>
             <ul>
               <li>Infant & Toddler Shoes</li>
-              <li>Kids' Shoes</li>
-              <li>Kids' Jordan Shoes</li>
-              <li>Kids' Basketball Shoes</li>
+              <li>Kids&apos; Shoes</li>
+              <li>Kids&apos;Jordan Shoes</li>
+              <li>Kids&apos; Basketball Shoes</li>
             </ul>
           </div>
         </div>

@@ -6,7 +6,7 @@ const JoinUs = () => {
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
         <img src="/nike-logo.png" alt="Nike Logo" className="w-12 mx-auto" />
         <h2 className="text-center text-2xl font-semibold mt-4">Become a Nike Member</h2>
-        <p className="text-center text-gray-600 mt-2">Create your Nike Member profile and get first access to the very best of Nike products, inspiration, and community.</p>
+        <p className="text-center text-gray-600 mt-2">Create your Nike Member profile and get first access to the very best of Nike products &apos; inspiration &apos; and community&apos;</p>
         <form className="mt-6">
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
@@ -97,7 +97,7 @@ const JoinUs = () => {
           </div>
 
           <p className="text-xs text-gray-500 mb-4">
-            By creating an account&apos; you agree to Nike's <a href="#" className="text-blue-500">Privacy Policy</a> and <a href="#" className="text-blue-500">Terms of Use</a>.
+            By creating an account&apos; you agree to Nike &apos; s <a href="#" className="text-blue-500">Privacy Policy</a> and <a href="#" className="text-blue-500">Terms of Use</a>.
           </p>
 
           <button 

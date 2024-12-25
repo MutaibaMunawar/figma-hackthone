@@ -1,4 +1,4 @@
-'use client';  
+'use client';
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
@@ -7,13 +7,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-7 py-1 bg-white shadow-md font-roboto">
+    <header className="flex items-center justify-between px-6 py-3 bg-white shadow-md font-roboto">
       {/* Logo */}
       <div className="flex items-center space-x-4">
-        <img
-          src="Nike-Logo.png" 
+        <Image
+          src="/Nike-Logo.png"
           alt="Nike Logo"
-          className="h-[70.47px] w-[70.47px]"
+          width={40}
+          height={40}
+          className="h-[40px] w-[40px] md:h-[70.47px] md:w-[70.47px]"  // Responsive logo size
         />
       </div>
 
@@ -22,15 +24,15 @@ export default function Navbar() {
         {["New & Featured", "Men", "Women", "Kids", "Sale", "SNKRS"].map(
           (item) => (
             <Link key={item} href="/" legacyBehavior>
-              <p className="text-sm text-[#111111] "> {item}</p>
+              <p className="text-sm text-[#111111] hover:text-black">{item}</p>
             </Link>
           )
         )}
       </nav>
 
-      {/* Icons */}
+      {/* Icons (Search, Heart, Cart) */}
       <div className="flex items-center space-x-4">
-        {/* Search */}
+        {/* Search Bar */}
         <div className="relative hidden md:block">
           <Image
             src="/search icon.png"
@@ -95,7 +97,7 @@ export default function Navbar() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+            d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}  // Toggling hamburger icon
           />
         </svg>
       </button>

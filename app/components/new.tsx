@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function New() {
     const categories = [
       "Shoes",
@@ -20,7 +21,7 @@ export default function New() {
         name: "Nike Air Force 1 Mid '07",
         type: "Men's Shoes",
         colors: "1 Colour",
-        image: "Rectangle (1).png", 
+        image: "/Rectangle (1).png", 
       },
       {
         id: 2,
@@ -103,17 +104,11 @@ export default function New() {
         colors: "1 Colour",
         image: "/Rectangle (14).png", 
       },  {
-        id: 14,
-        name: "Nike Air Force 1 PLT.AF.ORM",
-        type: "Women's Shoes",
-        colors: "1 Colour",
-        image: "/Rectangle (15).png", 
-      },  {
         id: 15,
         name: "Nike Air Force 1 PLT.AF.ORM",
         type: "Women's Shoes",
         colors: "1 Colour",
-        image: "/air-force-1-plt-af-orm.png", 
+        image: "/Rectangle (15).png", 
       },  {
         id: 16,
         name: "Nike Air Force 1 PLT.AF.ORM",
@@ -174,9 +169,15 @@ export default function New() {
         type: "Women's Shoes",
         colors: "1 Colour",
         image: "/air-force-1-plt-af-orm.png", 
+      },  {
+        id: 26,
+        name: "Nike Air Force 1 PLT.AF.ORM",
+        type: "Women's Shoes",
+        colors: "1 Colour",
+        image: "/air-force-1-plt-af-orm.png", 
       },
       {
-        id: 25,
+        id: 27,
         name: "Nike Air Force 1 PLT.AF.ORM",
         type: "Women's Shoes",
         colors: "1 Colour",
@@ -213,9 +214,11 @@ export default function New() {
                 key={product.id}
                 className="bg-white p-4 shadow hover:shadow-lg transition rounded-lg"
               >
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={100}
+                  height={40}
                   className="w-full h-40 object-contain mb-4"
                 />
                 <h3 className="text-lg font-medium">{product.name}</h3>

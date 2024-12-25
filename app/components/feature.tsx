@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Feature() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -8,9 +9,11 @@ export default function Feature() {
 
         {/* Image Section */}
         <div className="relative">
-          <img
+          <Image
             src="/feature.png" // Replace with your image in the public folder
             alt="Runner"
+            width={700}
+            height={700}
             className="w-full h-[700px] object-cover rounded-lg shadow-lg"
           />
         </div>

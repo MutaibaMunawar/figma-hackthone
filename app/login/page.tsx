@@ -1,11 +1,12 @@
 
 import React from 'react';
+import Image from 'next/image';
 
 const Login = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f4f4f4' }}>
       <div style={{ width: '300px', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', backgroundColor: '#fff', textAlign: 'center' }}>
-        <img src="/nike-logo.png" alt="Nike Logo" style={{ width: '50px', margin: '0 auto' }} />
+        <Image src="/nike-logo.png" alt="Nike Logo" width={50} height={50} style={{ width: '50px', margin: '0 auto' }} />
         <h2>Your Account for Everything Nike</h2>
         <form>
           <div style={{ marginBottom: '15px', textAlign: 'left' }}>

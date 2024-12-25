@@ -21,7 +21,7 @@ const Home = () => {
         {/* Image Section */}
         <div className="relative">
           <Image
-            src="home shoes.svg"
+            src="/home shoes.svg"
             alt="home shoes pic"
             width={1300}
             height={600}

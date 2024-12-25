@@ -1,3 +1,4 @@
+import Image from "next/image";
 const Footer = () => {
     return (
       <footer className="bg-black text-gray-400 py-8">
@@ -101,16 +102,16 @@ const Footer = () => {
           <div className="flex flex-col items-start space-y-4 pl-[300px]">
             <div className="flex space-x-4">
               <a href="#" className="hover:text-white">
-                <img src="/twiter icon.png" alt="Twitter" className="w-6 h-6" />
+                <Image src="/twiter icon.png" alt="Twitter" width={6} height={6} className="w-6 h-6" />
               </a>
               <a href="#" className="hover:text-white">
-                <img src="/fb icon.png" alt="Facebook" className="w-6 h-6" />
+                <Image src="/fb icon.png" alt="Facebook" width={6} height={6} className="w-6 h-6" />
               </a>
               <a href="#" className="hover:text-white">
-                <img src="/icon pic.png" alt="icon pic" className="w-6 h-6" />
+                <Image src="/icon pic.png" alt="icon pic" width={6} height={6} className="w-6 h-6" />
               </a>
               <a href="#" className="hover:text-white">
-                <img src="/insta icon.png" alt="insta" className="w-6 h-6" />
+                <Image src="/insta icon.png" alt="insta" width={6} height={6} className="w-6 h-6" />
               </a>
             </div>
           </div>

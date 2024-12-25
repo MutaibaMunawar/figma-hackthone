@@ -1,10 +1,11 @@
 import React from 'react';
+import Image from 'next/image';
 
 const JoinUs = () => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-        <img src="/nike-logo.png" alt="Nike Logo" className="w-12 mx-auto" />
+        <Image src="/nike-logo.png" alt="Nike Logo" width={12} height={0} className="w-12 mx-auto" />
         <h2 className="text-center text-2xl font-semibold mt-4">Become a Nike Member</h2>
         <p className="text-center text-gray-600 mt-2">Create your Nike Member profile and get first access to the very best of Nike products &apos; inspiration &apos; and community&apos;</p>
         <form className="mt-6">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Cart = () => {
   const items = [
@@ -40,9 +41,11 @@ const Cart = () => {
               paddingBottom: '10px',
             }}
           >
-            <img
+            <Image
               src={item.image}
               alt={item.name}
+              width={100}
+              height={100}
               style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }}
             />
             <div style={{ flex: 1, marginLeft: '20px' }}>

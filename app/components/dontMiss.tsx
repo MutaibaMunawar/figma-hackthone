@@ -1,14 +1,17 @@
+import Image from "next/image";
 export default function FlightEssentials() {
     return (
       <div className="bg-gray-50 min-h-screen p-8">
         <section className="mb-12">
-          <h2 className="text-xl font-medium mb-4">Don’t Miss</h2>
+          <h2 className="text-xl font-medium mb-4">Don&apos;t Miss</h2>
           <div className="grid grid-cols-1  gap-6">
             {/* Left Image Section */}
             <div className="relative w-full h-screen">
-              <img
+              <Image
                 src="/menpic.png" 
                 alt="Jordan Flight Essentials"
+                width={400}
+                height={400}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -30,4 +33,3 @@ export default function FlightEssentials() {
       </div>
     );
   }
-  

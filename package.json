@@ -15,15 +15,17 @@
   },
   "dependencies": {
     "@ungap/structured-clone": "github:ungap/structured-clone",
-    "next": "14.2.2",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^14.2.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
     "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-icons": "^2.2.7",
     "eslint": "^8",
     "eslint-config-next": "14.2.2",
     "postcss": "^8",

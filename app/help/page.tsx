@@ -1,124 +1,115 @@
-import React from "react";
+import Link from "next/link";
+import { AiFillLike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
+import Image from "next/image";
 
-const HelpPage = () => {
-  return (
-    <div style={{ fontFamily: "Arial, sans-serif", maxWidth: "1200px", margin: "auto", padding: "20px" }}>
-      <h1 style={{ textAlign: "center" }}>Get Help</h1>
+// FAQ data
+const faqs = [
+    {
+        ques: "Does my card need international purchases enabled?",
+        ans: "Yes, we recommend asking your bank to enable international purchases on your card. You will be notified at checkout if international purchases need to be enabled."
+    },
+    {
+        ques: "Can I pay for my order with multiple methods?",
+        ans: "No, payment for Nike orders can&apos;t be split between multiple payment methods."
+    },
+    {
+        ques: "What payment method is accepted for SNKRS orders?",
+        ans: "You can use any accepted credit card to pay for your SNKRS order."
+    },
+    {
+        ques: "Why don&apos;t I see Apple Pay as an option?",
+        ans: "To see Apple Pay as an option in the Nike App or on Nike.com, you&apos;ll need to use a compatible Apple device running the latest OS, be signed in to your iCloud account and have a supported card in your Wallet. Additionally, you&apos;ll need to use Safari to use Apple Pay on Nike.com."
+    },
+];
 
-      {/* Search Bar */}
-      <div style={{ margin: "20px 0", textAlign: "center" }}>
-        <input
-          type="text"
-          placeholder="What can we help you with?"
-          style={{
-            width: "100%",
-            maxWidth: "600px",
-            padding: "10px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-          }}
-        />
-      </div>
+// Sidebar data
+const sidebarData = [
+    {
+        image: "/contact/phone.png",
+        para: "000 800 919 0566",
+        span: "Products & Orders: 24 hours a day, 7 days a week Company Info & Enquiries: 07:30 - 16:30, Monday - Friday"
+    },
+    {
+        image: "/contact/message.png",
+        para: "24 hours a day",
+        span: "7 days a week"
+    },
+    {
+        image: "/contact/envelope.png",
+        para: "We&apos;ll reply within",
+        span: "five business days"
+    },
+    {
+        image: "/contact/location.png",
+        para: "STORE LOCATION",
+        span: "Find Nike retail stores near you"
+    },
+];
 
-      {/* Main Content */}
-      <div style={{ display: "flex", gap: "20px" }}>
-        {/* Left Section */}
-        <div style={{ flex: 2 }}>
-          <h2>What payment options can I use on Nike orders?</h2>
-          <p>
-            We want to make buying your favorite Nike shoes and gear online fast and easy&apos; and we accept the following
-            payment options:
-          </p>
-          <ul>
-            <li>Visa</li>
-            <li>Mastercard</li>
-            <li>Diners Club</li>
-            <li>Discover</li>
-            <li>American Express</li>
-            <li>Visa Electron</li>
-            <li>Maestro</li>
-          </ul>
-          <p>
-            If you enter your PAN information at checkout&apos; you’ll be able to pay for your order with PayTM or a local
-            credit or debit card.
-          </p>
-          <p>Apple Pay</p>
-          <p>
-            <strong>Nike Members</strong> can store multiple debit or credit cards in their profile for faster checkout.
-            If you’re not already a Member&apos;{" "}
-            <a href="#" style={{ color: "blue", textDecoration: "underline" }}>
-              join us today
-            </a>
-            .
-          </p>
-          <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#000",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Join Us
-            </button>
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#000",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Shop Nike
-            </button>
-          </div>
+// Main Content with Sidebar
+const ContentPage = () => {
+    return (
+        <div className="flex flex-col md:flex-row bg-white">
+            {/* Main Content Section */}
+            <div className="flex-1 md:px-10 p-4 bg-white">
+                <h1 className="font-medium text-2xl">WHAT PAYMENT OPTIONS CAN I USE ON NIKE ORDERS?</h1>
+                <div>
+                    <p className="py-3">We want to make buying your favourite Nike shoes and gear online fast and easy&apos; and we accept the following payment options:</p>
+                    <div className="space-y-4 p-4">
+                        <p>Visa&apos; Mastercard&apos; Diners Club&apos; Discover&apos; American Express&apos; Visa Electron&apos; Maestro</p>
+                        <p>If you enter your PAN information at checkout&apos; you&apos;ll be able to pay for your order with PayTM or a local credit or debit card.</p>
+                        <p>Apple Pay</p>
+                    </div>
+                    <p className="py-3"><span className="underline font-medium">Nike Members</span> can store multiple debit or credit cards in their profile for faster checkout. If you&apos;re not already a Member&apos; join us today.</p>
+                    <div className="flex items-center gap-4 py-4">
+                        <Link href={"/"} className="px-6 py-2 bg-[#111111] text-white text-sm rounded-full">JOIN US</Link>
+                        <Link href={"/"} className="px-6 py-2 bg-[#111111] text-white text-sm rounded-full">SHOP NIKE</Link>
+                    </div>
+                </div>
 
-          {/* FAQs */}
-          <h3 style={{ marginTop: "40px" }}>FAQs</h3>
-          <h4>Does my card need international purchases enabled?</h4>
-          <p>
-            Yes&apos; we recommend asking your bank to enable international purchases on your card. You will be notified at
-            checkout if international purchases need to be enabled.
-          </p>
-          <p>
-            Please note&apos; some banks may charge a small transaction fee for international orders.
-          </p>
-          <h4>Can I pay for my order with multiple methods?</h4>
-          <p>No&apos; payment for Nike orders can’t be split between multiple payment methods.</p>
-          <h4>What payment method is accepted for SNKRS orders?</h4>
-          <p>You can use any accepted credit card to pay for your SNKRS order.</p>
-          <h4>Why don’t I see Apple Pay as an option?</h4>
-          <p>
-            To see Apple Pay as an option in the Nike App or on Nike.com&apos; you’ll need to use a compatible Apple device
-            running the latest OS&apos; be signed in to your iCloud account&apos; and have a supported card in your Wallet.
-            Additionally&apos; you’ll need to use Safari to use Apple Pay on Nike.com.
-          </p>
+                <div>
+                    <h1 className="text-xl font-medium">FAQs</h1>
+                    {faqs.map((data, index) => {
+                        return (
+                            <div key={index} className="py-4">
+                                <p className="font-medium mb-1">{data.ques}</p>
+                                <span className="text-[#111]">{data.ans}</span>
+                            </div>
+                        );
+                    })}
+                </div>
+                <span className="text-sm py-3">Was this answer helpful?</span>
+                <div className="text-2xl flex items-center gap-2 py-3">
+                    <AiFillLike />
+                    <AiFillDislike />
+                </div>
+                <div>
+                    <h2 className="text-xl text-zinc-500 font-medium">RELATED</h2>
+                    <div className="md:p-4 text-sm space-y-3 font-medium">
+                        <p className="border-b-2 w-fit">WHAT ARE NIKE&apos;S DELIVERY OPTIONS?</p>
+                        <p className="border-b-2 w-fit">HOW DO I GET FREE DELIVERY ON NIKE ORDERS?</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Sidebar Section */}
+            <div className="md:w-96 w-full md:border-l-2 px-16 flex justify-start items-center flex-col min-h-screen gap-3 pt-10 bg-white">
+                <h1 className="font-medium text-2xl">CONTACT US</h1>
+                {sidebarData.map((data, index) => {
+                    return (
+                        <div key={index} className="flex justify-center flex-col items-center py-4">
+                            <div className="w-20 h-20 py-2 my-4">
+                                <Image src={data.image} alt="" width={600} height={600} className="w-full h-full object-contain" />
+                            </div>
+                            <p className="font-medium">{data.para}</p>
+                            <span className="text-center">{data.span}</span>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
-
-        {/* Right Section */}
-        <div style={{ flex: 1, border: "1px solid #ddd", padding: "20px", borderRadius: "8px" }}>
-          <h3 style={{ fontWeight: "bold", fontSize: "1.25rem", paddingLeft: "80px" }}>Contact Us</h3>
-          <img src="/get help.png" alt="Help Icon" style={{ maxWidth: "100%" }} />
-          
-          <div style={{ margin: "20px 0" }}>
-            <img src="/msj.png" alt="Message Icon" style={{ maxWidth: "100%" }} />
-          </div>
-          <div style={{ margin: "20px 0" }}>
-            <img src="/email.png" alt="Email Icon" style={{ maxWidth: "100%" }} />
-          </div>
-          <div style={{ margin: "20px 0" }}>
-            <img src="/location.png" alt="Location Icon" style={{ maxWidth: "100%" }} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default HelpPage;
+export default ContentPage;

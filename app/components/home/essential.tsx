@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 export default function Essentials() {
     return (
       <div className="bg-gray-50 p-6 min-h-screen">
@@ -9,9 +10,11 @@ export default function Essentials() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {/* Men's Section */}
           <div className="relative group">
-            <img
+            <Image
               src="/men's.png" 
               alt="Men's Essentials"
+              width={100}
+              height={100}
               className="w-full h-auto object-cover"
             />
         
@@ -19,9 +22,11 @@ export default function Essentials() {
   
           {/* Women's Section */}
           <div className="relative group">
-            <img
+            <Image
               src="/women's.png" 
               alt="Women's Essentials"
+              width={100}
+              height={100}
               className="w-full h-auto object-cover"
             />
          
@@ -29,9 +34,11 @@ export default function Essentials() {
   
           {/* Kids' Section */}
           <div className="relative group">
-            <img
+            <Image
               src="/kid's.png" 
               alt="Kids' Essentials"
+              width={100}
+              height={100}
               className="w-full h-auto object-cover"
             />
          

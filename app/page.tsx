@@ -1,5 +1,5 @@
 "use client";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/home/page";
 import { BestAirMax } from "./components/home/bestAirMax";
 import Feature from "./components/feature";
@@ -17,7 +17,7 @@ import Login from "./login/page";
 
 function App() {
   return (
-    <Router>
+    <div>
       <Home />
       <BestAirMax />
       <Feature />
@@ -25,18 +25,18 @@ function App() {
       <FlightEssentials />
       <Essentials />
       <New />
+      </div>
+    //  <Routes>
+    //     <Route path="/New-men-shop" element={<ShopMen1 />} />
+    //     <Route path="./new/page" element={<ShopMen2 />} />
+    //     <Route path="./New" element={<ProductPageWomen1 />} />
+    //     <Route path="./New" element={<ProductPageWomen2 />} />     
 
-      <Routes>
-        {/* <Route path="/New-men-shop" element={<ShopMen1 />} />
-        <Route path="./new/page" element={<ShopMen2 />} />
-        <Route path="./New" element={<ProductPageWomen1 />} />
-        <Route path="./New" element={<ProductPageWomen2 />} />      */}
-
-        <Route path="/help" element={<HelpPage />} />
-        <Route path="/joinUs" element={<JoinUs />} />
-        <Route path="/login/" element={<Login />} />
-      </Routes>
-    </Router>
+    //   //   <Route path="/help" element={<HelpPage />} />
+    //   //   <Route path="/joinUs" element={<JoinUs />} />
+    //   //   <Route path="/login/" element={<Login />} />
+    //   // </Routes>
+   
   );
 }
 

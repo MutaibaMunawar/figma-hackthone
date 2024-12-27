@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import Link from 'next/link'
 import Image from 'next/image';
 
 const products = [
@@ -41,7 +41,7 @@ export default function GearUp() {
         {products.map((product, index) => (
           <div key={index} className="bg-white p-4 shadow-md rounded-lg">
             {/* Wrap the image with Link to make it clickable */}
-            <Link to={product.link}>
+            <Link href={product.link}>
               <Image
                 src={product.imageUrl}
                 alt={product.name}

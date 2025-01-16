@@ -27,7 +27,7 @@ const Home = () => {
           alt="home shoes pic"
           width={1300}
           height={600}
-          className="w-full h-[620px] object-cover"
+          className="w-full h-auto object-cover"
         />
       </div>
 

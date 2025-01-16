@@ -11,9 +11,9 @@ import New from "./components/new";
 // import ShopMen2 from './components/new';
 // import ProductPageWomen1 from './components/new';
 // import ProductPageWomen2 from './components/new';
-import HelpPage from "./help/page";
-import JoinUs from "./joinUs/page";
-import Login from "./login/page";
+// import HelpPage from "./help/page";
+// import JoinUs from "./joinUs/page";
+// import Login from "./login/page";
 
 function App() {
   return (

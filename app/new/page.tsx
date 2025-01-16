@@ -21,182 +21,182 @@ export default function New() {
       name: "Nike Air Force 1 Mid '07",
       type: "Men's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-mid-07.png", // Save this in the public folder
+      image: "/Rectangle (12).png", 
     },
     {
       id: 2,
       name: "Nike Court Vision Low Next Nature",
       type: "Men's Shoes",
       colors: "1 Colour",
-      image: "/court-vision-low-next-nature.png", // Save this in the public folder
+      image: "", 
     },
     {
       id: 3,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/Rectangle (4).png", 
     },
     {
       id: 4,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 5,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 6,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 7,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 8,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 9,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 10,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 11,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 12,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 13,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 14,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 14,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 15,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 16,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/air-force-1-plt-af-orm.png", // Save this in the public folder
+      image: "/air-force-1-plt-af-orm.png", 
     },
     {
       id: 17,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (26).png", // Save this in the public folder
+      image: "/Rectangle (26).png", 
     },
     {
       id: 18,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (25).png", // Save this in the public folder
+      image: "/Rectangle (25).png", 
     },
     {
       id: 19,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (21).png", // Save this in the public folder
+      image: "/Rectangle (21).png", 
     },
     {
       id: 20,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (20).png", // Save this in the public folder
+      image: "/Rectangle (20).png", 
     },
     {
       id: 21,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (19).png", // Save this in the public folder
+      image: "/Rectangle (19).png", 
     },
     {
       id: 22,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (18).png", // Save this in the public folder
+      image: "/Rectangle (18).png", 
     },
     {
       id: 23,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (18).png", // Save this in the public folder
+      image: "/Rectangle (18).png", 
     },
     {
       id: 24,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (25).png", // Save this in the public folder
+      image: "/Rectangle (25).png", 
     },
     {
       id: 25,
       name: "Nike Air Force 1 PLT.AF.ORM",
       type: "Women's Shoes",
       colors: "1 Colour",
-      image: "/Rectangle (16).png", // Save this in the public folder
+      image: "/Rectangle (32).png", 
     },
   ];
 

@@ -6,12 +6,12 @@ export default function FlightEssentials() {
           <h2 className="text-xl font-medium mb-4">Don&apos;t Miss</h2>
           <div className="grid grid-cols-1  gap-6">
             {/* Left Image Section */}
-            <div className="relative w-full h-screen">
+            <div className="relative w-full h-60 sm:h-[400px] lg:h-[500px]">
               <Image
                 src="/menpic.png" 
                 alt="Jordan Flight Essentials"
-                width={400}
-                height={400}
+                width={500}
+                height={500}
                 className="w-full h-full object-cover"
               />
             </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export const BestAirMax = () => {
   const products = [
     {
@@ -14,7 +15,7 @@ export const BestAirMax = () => {
       type: "Men's Shoes",
       price: "₹13,995",
       image: "/shoes pic2.png",
-      badge: "",
+      badge: "New",
     },
     {
       id: 3,
@@ -29,9 +30,9 @@ export const BestAirMax = () => {
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h1 className="text-xl font-bold mb-6 flex justify-between items-center">
+        <h1 className="text-xl sm:text-2xl font-bold mb-6 flex justify-between items-center">
           Best of Air Max
-          <span className="text-sm font-normal flex items-center space-x-2">
+          <span className="text-sm sm:text-base font-normal flex items-center space-x-2">
             Shop
             <Image src="/left arrow.png" alt="arrow" width={24} height={24} />
             <Image src="/right arrow.png" alt="arrow" width={24} height={24} />
@@ -46,7 +47,7 @@ export const BestAirMax = () => {
             >
               {/* Badge (optional) */}
               {product.badge && (
-                <div className="absolute top-2 left-2 bg-green-600 text-white text-sm px-2 py-1 rounded">
+                <div className="absolute top-2 left-2 bg-green-600 text-white text-xs sm:text-sm px-2 py-1 rounded">
                   {product.badge}
                 </div>
               )}
@@ -57,16 +58,16 @@ export const BestAirMax = () => {
                 alt={product.name}
                 width={541.36}
                 height={350.36}
-                className="mb-4 mt-auto"
+                className="mb-4 mt-auto w-full h-auto object-cover"
               />
 
               <div className="flex justify-between items-center">
-                <h3 className="text-sm font-medium">{product.name}</h3>
-                <p className="text-sm font-bold">{product.price}</p>
+                <h3 className="text-sm sm:text-base font-medium">{product.name}</h3>
+                <p className="text-sm sm:text-base font-bold">{product.price}</p>
               </div>
 
-              {/*Type */}
-              <p className="text-xs text-gray-600">{product.type}</p>
+              {/* Product Type */}
+              <p className="text-xs sm:text-sm text-gray-600">{product.type}</p>
             </div>
           ))}
         </div>

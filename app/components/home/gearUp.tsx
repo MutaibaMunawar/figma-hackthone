@@ -40,7 +40,6 @@ export default function GearUp() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
         {products.map((product, index) => (
           <div key={index} className="bg-white p-4 shadow-md rounded-lg">
-            {/* Wrap the image with Link to make it clickable */}
             <Link href={product.link}>
               <Image
                 src={product.imageUrl}

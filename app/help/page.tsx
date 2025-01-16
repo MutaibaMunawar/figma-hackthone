@@ -26,22 +26,22 @@ const faqs = [
 // Sidebar data
 const sidebarData = [
     {
-        image: "/contact/phone.png",
+        image: "/contact.png",
         para: "000 800 919 0566",
         span: "Products & Orders: 24 hours a day, 7 days a week Company Info & Enquiries: 07:30 - 16:30, Monday - Friday"
     },
     {
-        image: "/contact/message.png",
+        image: "/inbox.png",
         para: "24 hours a day",
         span: "7 days a week"
     },
     {
-        image: "/contact/envelope.png",
+        image: "/email (2).png",
         para: "We&apos;ll reply within",
         span: "five business days"
-    },
+    } ,
     {
-        image: "/contact/location.png",
+        image: "/location 1.png",
         para: "STORE LOCATION",
         span: "Find Nike retail stores near you"
     },

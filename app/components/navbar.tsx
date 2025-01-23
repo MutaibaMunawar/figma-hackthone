@@ -64,21 +64,22 @@ export default function Navbar() {
           />
         </svg>
 
-        {/* Cart Icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-gray-700 hover:text-black"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 3h2l.34 2M7 13h10l3.34-8H6.66M7 13L5.34 5m1.66 8a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm10 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
-          />
-        </svg>
+        {/* Cart Icon with Link */}
+  {/* <Link href="/cart">  */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6 text-gray-700 hover:text-black"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M3 3h2l.34 2M7 13h10l3.34-8H6.66M7 13L5.34 5m1.66 8a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm10 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
+      />
+    </svg>
       </div>
 
       {/* Mobile Menu Button */}

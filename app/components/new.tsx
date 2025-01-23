@@ -93,7 +93,7 @@ const ProductPage = () => {
                   {product.productName}
                 </h1>
                 <p className="text-gray-500 mt-2">${product.price}</p>
-                {/* <p className="text-gray-600 mt-1">${product.description}</p> */}
+                <p className="text-gray-600 mt-1 font-normal ">${product.description}</p>
               </Link>
             </div>
           ))}

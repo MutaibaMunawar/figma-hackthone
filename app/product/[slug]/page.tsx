@@ -46,16 +46,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <Image
               src={urlFor(product.image).url()}
               alt={product.productName}
-              width={500}
-              height={400}
-              className="rounded-lg"
+              width={600}
+              height={550}
+              className="rounded-lg pl-[90px]"
             />
           )}
         </div>
 
         {/* Product Details */}
         <div className="flex flex-col gap-8">
-          <h1 className="text-4xl font-bold">{product.productName}</h1>
+          <h1 className="text-4xl font-bold pt-11">{product.productName}</h1>
           <p className="text-2xl font-sans">${product.price}</p>
           <p className="text-lg font-sans">{product.description}</p>
         </div>

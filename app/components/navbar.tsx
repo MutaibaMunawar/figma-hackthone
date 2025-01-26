@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
@@ -15,22 +15,25 @@ export default function Navbar() {
           alt="Nike Logo"
           width={40}
           height={40}
-          className="h-[40px] w-[40px] md:h-[70.47px] md:w-[70.47px]"  // Responsive logo size
+          className="h-[40px] w-[40px] md:h-[70.47px] md:w-[70.47px]"
         />
       </div>
 
       {/* Navigation Links */}
       <nav className="hidden md:flex space-x-6">
+        <Link href="/new">New & Featured</Link>
         {[
-          { name: "New & Featured", link: "/new" },
+          // { name: "New & Featured", link: "/new" },
           { name: "Men", link: "/men" },
           { name: "Women", link: "/women" },
           { name: "Kids", link: "/kids" },
           { name: "Sale", link: "/sale" },
-          { name: "SNKRS", link: "/snkrs" }
+          { name: "SNKRS", link: "/snkrs" },
         ].map((item) => (
           <Link key={item.name} href={item.link} passHref>
-            <div className="text-sm text-[#111111] hover:text-black cursor-pointer">{item.name}</div>
+            <div className="text-sm text-[#111111] hover:text-black cursor-pointer">
+              {item.name}
+            </div>
           </Link>
         ))}
       </nav>
@@ -104,7 +107,7 @@ export default function Navbar() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}  // Toggling hamburger icon
+            d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
           />
         </svg>
       </button>
@@ -122,7 +125,9 @@ export default function Navbar() {
               { name: "SNKRS", link: "/snkrs" },
             ].map((item) => (
               <Link key={item.name} href={item.link} passHref>
-                <div className="text-sm text-gray-700 hover:text-black">{item.name}</div>
+                <div className="text-sm text-gray-700 hover:text-black">
+                  {item.name}
+                </div>
               </Link>
             ))}
           </nav>

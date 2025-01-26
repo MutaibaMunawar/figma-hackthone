@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+// import New from "../components/new"
+// import { component } from "sanity/structure";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,14 +23,21 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <nav className="hidden md:flex space-x-6">
-        {["New & Featured", "Men", "Women", "Kids", "Sale", "SNKRS"].map(
-          (item) => (
-            <Link key={item} href="/" legacyBehavior>
-              <p className="text-sm text-[#111111] hover:text-black">{item}</p>
-            </Link>
-          )
-        )}
-      </nav>
+  {[
+    { name: "New & Featured", link: "/new" },
+    { name: "Men", link: "/men" },
+    { name: "Women", link: "/women" },
+    { name: "Kids", link: "/kids" },
+    { name: "Sale", link: "/sale" },
+    { name: "SNKRS", link: "/snkrs" }
+  ].map((item) => (
+    <Link key={item.name} href={item.link} legacyBehavior>
+      <p className="text-sm text-[#111111] hover:text-black cursor-pointer">{item.name}</p>
+    </Link>
+  ))}
+</nav>
+
+
 
       {/* Icons (Search, Heart, Cart) */}
       <div className="flex items-center space-x-4">
@@ -65,21 +74,22 @@ export default function Navbar() {
         </svg>
 
         {/* Cart Icon with Link */}
-  {/* <Link href="/cart">  */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6 text-gray-700 hover:text-black"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M3 3h2l.34 2M7 13h10l3.34-8H6.66M7 13L5.34 5m1.66 8a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm10 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
-      />
-    </svg>
+        <Link href="/cart_cart" passHref>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-gray-700 hover:text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3h2l.34 2M7 13h10l3.34-8H6.66M7 13L5.34 5m1.66 8a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm10 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
+            />
+          </svg>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}

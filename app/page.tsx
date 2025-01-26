@@ -6,7 +6,7 @@ import Feature from "./components/feature";
 import GearUp from "./components/home/gearUp";
 import FlightEssentials from "./components/dontMiss";
 import Essentials from "./components/home/essential";
-import New from "./components/new";
+// import New from "./new/page";
 // import ShopMen1 from './components/new';
 // import ShopMen2 from './components/new';
 // import ProductPageWomen1 from './components/new';
@@ -24,7 +24,7 @@ function App() {
       <GearUp />
       <FlightEssentials />
       <Essentials />
-      <New />
+      {/* <New /> */}
       </div>
     //  <Routes>
     //     <Route path="/New-men-shop" element={<ShopMen1 />} />

@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-// import New from "../components/new"
-// import { component } from "sanity/structure";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,21 +21,19 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <nav className="hidden md:flex space-x-6">
-  {[
-    { name: "New & Featured", link: "/new" },
-    { name: "Men", link: "/men" },
-    { name: "Women", link: "/women" },
-    { name: "Kids", link: "/kids" },
-    { name: "Sale", link: "/sale" },
-    { name: "SNKRS", link: "/snkrs" }
-  ].map((item) => (
-    <Link key={item.name} href={item.link} legacyBehavior>
-      <p className="text-sm text-[#111111] hover:text-black cursor-pointer">{item.name}</p>
-    </Link>
-  ))}
-</nav>
-
-
+        {[
+          { name: "New & Featured", link: "/new" },
+          { name: "Men", link: "/men" },
+          { name: "Women", link: "/women" },
+          { name: "Kids", link: "/kids" },
+          { name: "Sale", link: "/sale" },
+          { name: "SNKRS", link: "/snkrs" }
+        ].map((item) => (
+          <Link key={item.name} href={item.link} passHref>
+            <div className="text-sm text-[#111111] hover:text-black cursor-pointer">{item.name}</div>
+          </Link>
+        ))}
+      </nav>
 
       {/* Icons (Search, Heart, Cart) */}
       <div className="flex items-center space-x-4">
@@ -117,15 +113,18 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
           <nav className="flex flex-col items-center py-4 space-y-2 font-roboto">
-            {["New & Featured", "Men", "Women", "Kids", "Sale", "SNKRS"].map(
-              (item) => (
-                <Link key={item} href="/">
-                  <p className="text-sm text-gray-700 hover:text-black">
-                    {item}
-                  </p>
-                </Link>
-              )
-            )}
+            {[
+              { name: "New & Featured", link: "/new" },
+              { name: "Men", link: "/men" },
+              { name: "Women", link: "/women" },
+              { name: "Kids", link: "/kids" },
+              { name: "Sale", link: "/sale" },
+              { name: "SNKRS", link: "/snkrs" },
+            ].map((item) => (
+              <Link key={item.name} href={item.link} passHref>
+                <div className="text-sm text-gray-700 hover:text-black">{item.name}</div>
+              </Link>
+            ))}
           </nav>
         </div>
       )}

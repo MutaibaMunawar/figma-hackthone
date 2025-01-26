@@ -2,12 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
-import { allProduct, four } from "@/sanity/lib/queries";
+import { allProduct } from "@/sanity/lib/queries";
 import { Product } from "@/types/products";
 import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useState } from "react";
 import { addToCart } from "../actions/actions";
-import swal  from "sweetalert2";
+import swal from "sweetalert2";
 
 const categories = [
   "Shoes",
@@ -39,24 +39,22 @@ const ProductPage = () => {
     fetchProduct();
   }, []);
 
-  const handleAddToCart = (e: React.MouseEvent, product: Product) =>{
-    e.preventDefault
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
     swal.fire({
       position: "center-start",
       icon: "success",
-      title: `${product.productName} Added succesfully `,
-      showConfirmButton : false,
-      timer: 2000
-    })
-    addToCart(product )
-    
-
-  }
+      title: `${product.productName} Added successfully `,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+    addToCart(product);
+  };
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-64 p-4 bg-white shadow">
+      {/* Sidebar (Hidden on mobile) */}
+      <aside className="w-64 p-4 bg-white shadow md:block hidden">
         <h2 className="text-lg font-bold mb-4">New (500)</h2>
         <ul className="space-y-2">
           {categories.map((category, index) => (
@@ -84,41 +82,40 @@ const ProductPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {product.map((product) => (
-           <div
-  key={product._id}
-  className="border rounded-lg shadow-md p-4 flex flex-col h-full hover:shadow-lg transition duration-200"
->
-  <Link
-    href={
-      product && product.slug && product.slug.current
-        ? `/product/${product.slug.current}`
-        : "#"
-    }
-  >
-    {product.image && (
-      <Image
-        src={urlFor(product.image).url() || "/fallback-image.jpg"}
-        alt={product.productName || "Product Image"}
-        width={200}
-        height={200}
-        className="w-full h-48 object-cover rounded-md"
-      />
-    )}
-    <h1 className="text-lg font-semibold mt-4 flex-grow">
-      {product.productName}
-    </h1>
-    <p className="text-gray-500 mt-2">${product.price}</p>
-  </Link>
-  <button
-    className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold
-      py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform
-      duration-200 ease-in-out mb-0 mt-auto"
-    onClick={(e) => handleAddToCart(e, product)}
-  >
-    Add To Cart
-  </button>
-</div>
-
+            <div
+              key={product._id}
+              className="border rounded-lg shadow-md p-4 flex flex-col h-full hover:shadow-lg transition duration-200"
+            >
+              <Link
+                href={
+                  product && product.slug && product.slug.current
+                    ? `/product/${product.slug.current}`
+                    : "#"
+                }
+              >
+                {product.image && (
+                  <Image
+                    src={urlFor(product.image).url() || "/fallback-image.jpg"}
+                    alt={product.productName || "Product Image"}
+                    width={200}
+                    height={200}
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                )}
+                <h1 className="text-lg font-semibold mt-4 flex-grow">
+                  {product.productName}
+                </h1>
+                <p className="text-gray-500 mt-2">${product.price}</p>
+              </Link>
+              <button
+                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold
+                  py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform
+                  duration-200 ease-in-out mb-0 mt-auto"
+                onClick={(e) => handleAddToCart(e, product)}
+              >
+                Add To Cart
+              </button>
+            </div>
           ))}
         </div>
       </main>
@@ -127,4 +124,3 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
- 

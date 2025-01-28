@@ -5,7 +5,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { Product } from "@/types/products";
 import { groq } from "next-sanity";
 import Image from "next/image";
-import { addToCart } from "@/app/actions/actions";  // Import addToCart function
+import { addToCart } from "@/app/actions/actions";  
 import swal from "sweetalert2";
 
 // Function to fetch the product details by slug
@@ -70,21 +70,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
 
         {/* Product Details */}
-        <div className="flex flex-col gap-8">
-          <h1 className="text-4xl font-bold pt-11">{product.productName}</h1>
-          <p className="text-2xl font-sans">${product.price}</p>
-          <p className="text-lg font-sans">{product.description}</p>
+        <div className="flex flex-col gap-4 p-6">
 
-          {/* Add to Cart Button */}
-          <button
-            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold
-            py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform
-            duration-200 ease-in-out mt-4"
-            onClick={handleAddToCart}
-          >
-            Add To Cart
-          </button>
-        </div>
+  <h1 className="text-4xl font-bold">{product.productName}</h1>
+
+  <p className="text-xl font-semibold">₹ {product.price}</p>
+
+
+  <p className="text-base text-gray-600">{product.description}</p>
+
+
+  <button
+    className="bg-black text-white font-semibold py-2 px-6 rounded-md shadow-md 
+    hover:bg-gray-800 transition-all duration-200"
+    onClick={handleAddToCart}
+  >
+    Add To Cart
+  </button>
+</div>
       </div>
     </div>
   );

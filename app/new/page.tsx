@@ -6,8 +6,8 @@ import { allProduct } from "@/sanity/lib/queries";
 import { Product } from "@/types/products";
 import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useState } from "react";
-import { addToCart } from "../actions/actions";
-import swal from "sweetalert2";
+// import { addToCart } from "../actions/actions";  // The addToCart function is commented out
+// import swal from "sweetalert2";  // swal is commented out too
 
 const categories = [
   "Shoes",
@@ -39,17 +39,17 @@ const ProductPage = () => {
     fetchProduct();
   }, []);
 
-  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
-    e.preventDefault();
-    swal.fire({
-      position: "center-start",
-      icon: "success",
-      title: `${product.productName} Added successfully `,
-      showConfirmButton: false,
-      timer: 2000,
-    });
-    addToCart(product);
-  };
+  // const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+  //   e.preventDefault();
+  //   swal.fire({
+  //     position: "center-start",
+  //     icon: "success",
+  //     title: `${product.productName} Added successfully `,
+  //     showConfirmButton: false,
+  //     timer: 2000,
+  //   });
+  //   addToCart(product); // Add to cart action
+  // };
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -86,6 +86,7 @@ const ProductPage = () => {
               key={product._id}
               className="border rounded-lg shadow-md p-4 flex flex-col h-full hover:shadow-lg transition duration-200"
             >
+              {/* Link to the product detail page with dynamic routing */}
               <Link
                 href={
                   product && product.slug && product.slug.current
@@ -93,6 +94,7 @@ const ProductPage = () => {
                     : "#"
                 }
               >
+                {/* Product Image */}
                 {product.image && (
                   <Image
                     src={urlFor(product.image).url() || "/fallback-image.jpg"}
@@ -102,19 +104,24 @@ const ProductPage = () => {
                     className="w-full h-48 object-cover rounded-md"
                   />
                 )}
+               
                 <h1 className="text-lg font-semibold mt-4 flex-grow">
                   {product.productName}
                 </h1>
+               
                 <p className="text-gray-500 mt-2">${product.price}</p>
+           
+                <p className="text-gray-500 mt-2">{product.description}</p>
               </Link>
-              <button
+              {/* The Add to Cart button is commented out */}
+              {/* <button
                 className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold
                   py-2 px-4 rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform
                   duration-200 ease-in-out mb-0 mt-auto"
                 onClick={(e) => handleAddToCart(e, product)}
               >
                 Add To Cart
-              </button>
+              </button> */}
             </div>
           ))}
         </div>

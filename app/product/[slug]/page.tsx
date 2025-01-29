@@ -23,6 +23,34 @@ async function getProduct(slug: string): Promise<Product | null> {
   );
 }
 
+// Function to handle adding product to the wishlist in localStorage
+const addToWishlist = (product: Product) => {
+  // Get the current wishlist from localStorage or initialize an empty array
+  const currentWishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+  // Check if the product is already in the wishlist
+  if (!currentWishlist.some((item: Product) => item._id === product._id)) {
+    currentWishlist.push(product);
+    localStorage.setItem('wishlist', JSON.stringify(currentWishlist));
+
+    swal.fire({
+      position: 'center-start',
+      icon: 'success',
+      title: `${product.productName} added to your wishlist!`,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  } else {
+    swal.fire({
+      position: 'center-start',
+      icon: 'info',
+      title: `${product.productName} is already in your wishlist!`,
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
+};
+
 interface ProductPageProps {
   params: { slug: string };
 }
@@ -45,7 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     e.preventDefault();
     addToCart(product!); // Add product to cart
     swal.fire({
-      position: "center-start",
+      position: "top-start",
       icon: "success",
       title: `${product.productName} Added successfully!`,
       showConfirmButton: false,
@@ -71,23 +99,28 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Product Details */}
         <div className="flex flex-col gap-4 p-6">
+          <h1 className="text-4xl font-bold">{product.productName}</h1>
+          <p className="text-xl font-semibold">₹ {product.price}</p>
+          <p className="text-base text-gray-600">{product.description}</p>
 
-  <h1 className="text-4xl font-bold">{product.productName}</h1>
+          {/* Add to Cart Button */}
+          <button
+            className="bg-black text-white font-semibold py-2 px-6 rounded-md shadow-md 
+            hover:bg-gray-800 transition-all duration-200"
+            onClick={handleAddToCart}
+          >
+            Add To Cart
+          </button>
 
-  <p className="text-xl font-semibold">₹ {product.price}</p>
-
-
-  <p className="text-base text-gray-600">{product.description}</p>
-
-
-  <button
-    className="bg-black text-white font-semibold py-2 px-6 rounded-md shadow-md 
-    hover:bg-gray-800 transition-all duration-200"
-    onClick={handleAddToCart}
-  >
-    Add To Cart
-  </button>
-</div>
+          {/* Add to Wishlist Button */}
+          <button
+            className="bg-gray-800 text-white font-semibold py-2 px-6 rounded-md shadow-md 
+            hover:bg-gray-900 transition-all duration-200 mt-4"
+            onClick={() => addToWishlist(product!)}
+          >
+            Add to Wishlist
+          </button>
+        </div>
       </div>
     </div>
   );

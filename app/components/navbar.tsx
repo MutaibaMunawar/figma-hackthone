@@ -23,7 +23,6 @@ export default function Navbar() {
       <nav className="hidden md:flex space-x-6">
         <Link href="/new">New & Featured</Link>
         {[
-          // { name: "New & Featured", link: "/new" },
           { name: "Men", link: "/men" },
           { name: "Women", link: "/women" },
           { name: "Kids", link: "/kids" },
@@ -57,6 +56,7 @@ export default function Navbar() {
         </div>
 
         {/* Heart Icon */}
+        <Link href="/wishlist" passHref>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-6 h-6 text-gray-700 hover:text-black"
@@ -71,6 +71,7 @@ export default function Navbar() {
             d="M20.84 4.61a5.5 5.5 0 00-7.78 0l-.35.35-.35-.35a5.5 5.5 0 00-7.78 7.78l8.13 8.14a.75.75 0 001.06 0l8.13-8.14a5.5 5.5 0 000-7.78z"
           />
         </svg>
+        </Link>
 
         {/* Cart Icon with Link */}
         <Link href="/cart_cart" passHref>

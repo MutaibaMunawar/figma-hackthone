@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
@@ -6,8 +7,6 @@ import { allProduct } from "@/sanity/lib/queries";
 import { Product } from "@/types/products";
 import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useState } from "react";
-// import { addToCart } from "../actions/actions";  // The addToCart function is commented out
-// import swal from "sweetalert2";  // swal is commented out too
 
 const categories = [
   "Shoes",
@@ -28,28 +27,17 @@ const ProductPage = () => {
   const [product, setProduct] = useState<Product[]>([]);
 
   useEffect(() => {
-    async function fetchProduct() {
+    const fetchProduct = async () => {
       try {
         const fetchedProduct: Product[] = await client.fetch(allProduct);
         setProduct(fetchedProduct);
       } catch (error) {
         console.error("Error fetching products: ", error);
       }
-    }
-    fetchProduct();
-  }, []);
+    };
 
-  // const handleAddToCart = (e: React.MouseEvent, product: Product) => {
-  //   e.preventDefault();
-  //   swal.fire({
-  //     position: "center-start",
-  //     icon: "success",
-  //     title: `${product.productName} Added successfully `,
-  //     showConfirmButton: false,
-  //     timer: 2000,
-  //   });
-  //   addToCart(product); // Add to cart action
-  // };
+    fetchProduct(); // Fetch product inside useEffect
+  }, []);
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -86,7 +74,7 @@ const ProductPage = () => {
               key={product._id}
               className="border rounded-lg shadow-md p-4 flex flex-col h-full hover:shadow-lg transition duration-200"
             >
-              {/* Link to the product detail page with dynamic routing */}
+              {/* Link  dynamic routing */}
               <Link
                 href={
                   product && product.slug && product.slug.current
@@ -104,15 +92,16 @@ const ProductPage = () => {
                     className="w-full h-48 object-cover rounded-md"
                   />
                 )}
-               
+
                 <h1 className="text-lg font-semibold mt-4 flex-grow">
                   {product.productName}
                 </h1>
-               
+
                 <p className="text-gray-500 mt-2">${product.price}</p>
-           
+
                 <p className="text-gray-500 mt-2">{product.description}</p>
               </Link>
+
               {/* The Add to Cart button is commented out */}
               {/* <button
                 className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold

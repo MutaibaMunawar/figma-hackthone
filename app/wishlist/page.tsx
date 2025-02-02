@@ -1,8 +1,7 @@
 'use client';
-
 import { Product } from "@/types/products";
 import React, { useEffect, useState } from "react";
-import { getWishlistItems, removeFromWishlist } from "../actions/actions";
+import { getWishlistItems, removeFromWishlist, addToCart } from "../actions/actions"; // Add addToCart action
 import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
@@ -25,16 +24,22 @@ const WishlistPage = () => {
       confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        removeFromWishlist(id); // Handle removal from wishlist
-        setWishlistItems(getWishlistItems()); 
+        removeFromWishlist(id); 
+        setWishlistItems(getWishlistItems()); // Update wishlist after removal
         Swal.fire("Removed!", "Item has been removed from your wishlist.", "success");
       }
     });
   };
 
   const handleMoveToCart = (product: Product) => {
+    // Move item from wishlist to cart
+    addToCart(product); // Assuming you have an addToCart function
+
+    // Remove the item from wishlist
+    removeFromWishlist(product._id); 
+    setWishlistItems(getWishlistItems()); // Update wishlist after removal
+
     Swal.fire("Moved to Cart", `${product.productName} has been moved to the cart!`, "success");
-  
   };
 
   return (

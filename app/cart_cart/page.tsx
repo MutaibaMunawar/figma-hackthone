@@ -1,21 +1,23 @@
-"use client";
-
+'use client';
 import { Product } from "@/types/products";
 import React, { useEffect, useState } from "react";
 import {
   getCartItems,
   removeFromCart,
-  updateCartQuantity,
+  addToWishlist,
 } from "../actions/actions";
 import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Cartpage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
-    setCartItems(getCartItems());
+    const items = getCartItems();
+    setCartItems(items);
   }, []);
 
   const handleRemove = (id: string) => {
@@ -36,30 +38,12 @@ const Cartpage = () => {
     });
   };
 
-  const handleQuantityChange = (id: string, quantity: number) => {
-    updateCartQuantity(id, quantity);
-    setCartItems(getCartItems());
-  };
-
-  const handleIncrement = (id: string) => {
-    const product = cartItems.find((item) => item._id === id);
-    if (product) {
-      handleQuantityChange(id, product.inventory + 1);
+  const handleWishlist = (id: string) => {
+    const itemToAdd = cartItems.find(item => item._id === id);
+    if (itemToAdd) {
+      addToWishlist(itemToAdd);
+      Swal.fire("Added!", "Item added to your wishlist.", "success");
     }
-  };
-
-  const handleDecrement = (id: string) => {
-    const product = cartItems.find((item) => item._id === id);
-    if (product && product.inventory > 1) {
-      handleQuantityChange(id, product.inventory - 1);
-    }
-  };
-
-  const calculateTotal = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.inventory,
-      0
-    );
   };
 
   const handleProceed = () => {
@@ -73,97 +57,99 @@ const Cartpage = () => {
       confirmButtonText: "Yes, Proceed!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          "Success",
-          "Your order has been successfully processed.",
-          "success"
-        );
-        setCartItems([]);
+        router.push("/checkout");
       }
     });
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h1 className="text-3xl font-semibold text-center mb-8">
-          Your Shopping Cart
-        </h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-6">
+     
+        <h1 className="text-3xl font-bold mb-4">Bag</h1>
 
         {cartItems.length === 0 ? (
           <div className="text-center text-lg text-gray-500">
             Your cart is empty!
           </div>
         ) : (
-          <div className="space-y-6">
-            {cartItems.map((item) => (
-              <div
-                key={item._id}
-                className="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-md"
-              >
-                <div className="flex items-center space-x-4">
-                  {item.image && (
-                    <Image
-                      src={urlFor(item.image).url()}
-                      className="w-20 h-20 object-cover rounded-md"
-                      alt="images"
-                      width={500}
-                      height={500}
-                    />
-                  )}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Left: Cart Items */}
+            <div className="md:col-span-2 space-y-4">
+              {cartItems.map((item) => (
+                <div key={item._id} className="flex justify-between items-center border-b pb-4">
+                  <div className="flex items-center space-x-4">
+                    {item.image && (
+                      <Image
+                        src={urlFor(item.image).url()}
+                        className="w-24 h-24 object-cover rounded-md"
+                        alt={item.productName}
+                        width={100}
+                        height={100}
+                      />
+                    )}
 
-                  <div>
-                    <h3 className="text-xl font-semibold">
-                      {item.productName}
-                    </h3>
-                    <p className="text-sm text-gray-600">{item.description}</p>
+                    <div>
+                      <h3 className="text-lg font-semibold">{item.productName}</h3>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <p className="text-sm text-gray-500">Size: L</p>
+                    </div>
+                  </div>
+
+                  <div className="text-right">
+                    <p className="text-lg font-bold text-gray-900">₹ {item.price}</p>
+
+                    {/* Buttons */}
+                    <div className="flex justify-end space-x-3 mt-2">
+                      <button
+                        onClick={() => handleWishlist(item._id)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        ❤
+                      </button>
+
+                      <button
+                        onClick={() => handleRemove(item._id)}
+                        className="text-gray-500 hover:text-gray-700"
+                      >
+                        🗑
+                      </button>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="flex items-center space-x-3">
-                  <button
-                    onClick={() => handleDecrement(item._id)}
-                    className="bg-gray-200 p-2 rounded-full hover:bg-gray-300"
-                  >
-                    -
-                  </button>
-                  <span className="text-xl font-semibold">
-                    {item.inventory}
-                  </span>
-                  <button
-                    onClick={() => handleIncrement(item._id)}
-                    className="bg-gray-200 p-2 rounded-full hover:bg-gray-300"
-                  >
-                    +
-                  </button>
-                </div>
+            {/* Right: Summary Section */}
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
+              <h2 className="text-xl font-semibold mb-4">Summary</h2>
 
-                <div className="text-lg font-semibold text-gray-800">
-                  ${item.price * item.inventory}
-                </div>
-
-                <button
-                  onClick={() => handleRemove(item._id)}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  Remove
-                </button>
+              <div className="flex justify-between text-gray-700 mb-2">
+                <span>Subtotal</span>
+                <span>₹ {cartItems.reduce((total, item) => total + item.price, 0)}</span>
               </div>
-            ))}
+
+              <div className="flex justify-between text-gray-700 mb-4">
+                <span>Estimated Delivery & Handling</span>
+                <span>Free</span>
+              </div>
+
+              <hr className="border-gray-300 mb-4" />
+
+              <div className="flex justify-between text-lg font-semibold">
+                <span>Total</span>
+                <span>₹ {cartItems.reduce((total, item) => total + item.price, 0)}</span>
+              </div>
+
+              <button
+                onClick={handleProceed}
+                className="mt-6 w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800"
+              >
+                Member Checkout
+              </button>
+            </div>
           </div>
         )}
-
-        <div className="mt-8 flex justify-between items-center">
-          <div className="text-2xl font-semibold">
-            Total: ${calculateTotal().toFixed(2)}
-          </div>
-          <button
-            onClick={handleProceed}
-            className="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700"
-          >
-            Proceed to Checkout
-          </button>
-        </div>
       </div>
     </div>
   );

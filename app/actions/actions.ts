@@ -37,9 +37,9 @@ export const getCartItems = () : Product[] => {
     return JSON.parse(localStorage.getItem('cart') || '[]')
 };
 
-// import { Product } from "@/types/products";
 
-// Function to add a product to the wishlist
+
+//  add a product to the wishlist
 export const addToWishlist = (product: Product) => {
   const wishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
@@ -55,14 +55,14 @@ export const addToWishlist = (product: Product) => {
   }
 };
 
-// Function to remove a product from the wishlist
+//  remove a product from the wishlist
 export const removeFromWishlist = (productId: string) => {
   let wishlist: Product[] = JSON.parse(localStorage.getItem('wishlist') || '[]');
   wishlist = wishlist.filter(item => item._id !== productId);
   localStorage.setItem('wishlist', JSON.stringify(wishlist));
 };
 
-// Function to get all items from the wishlist
+//  get all items from the wishlist
 export const getWishlistItems = (): Product[] => {
   return JSON.parse(localStorage.getItem('wishlist') || '[]');
 };

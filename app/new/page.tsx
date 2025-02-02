@@ -36,7 +36,7 @@ const ProductPage = () => {
       }
     };
 
-    fetchProduct(); // Fetch product inside useEffect
+    fetchProduct(); 
   }, []);
 
   return (
@@ -82,7 +82,7 @@ const ProductPage = () => {
                     : "#"
                 }
               >
-                {/* Product Image */}
+                {/*  Image */}
                 {product.image && (
                   <Image
                     src={urlFor(product.image).url() || "/fallback-image.jpg"}

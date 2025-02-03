@@ -1,11 +1,12 @@
-
-'use client';
+"use client";
 
 import { Product } from "@/types/products";
 import React, { useEffect, useState } from "react";
 import { getCartItems } from "../actions/actions";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import {client} from "@/sanity/lib/client"; 
+
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -70,15 +71,47 @@ const Checkout = () => {
     }
   };
 
+  const handlePlaceOrder = async () => {
+    const total = subTotal - discount;  
+  
+    const orderData = {
+      _type: "order",
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
+      email: formValues.email,
+      phone: formValues.phone,
+      address: formValues.address,
+      zipCode: formValues.zipCode,
+      city: formValues.city,
+      cartItems: cartItems.map((item) => ({
+        _type: "reference",
+        _ref: item._id,
+      })),
+      total: total, 
+      discount: discount,
+      orderData: new Date().toISOString(),  
+    };
+    try {
+      await client.create(orderData);
+      localStorage.removeItem("AppliedDiscount");
+    }catch(error) {
+      console.error("Error placing order: ", error);
+      alert("Failed to place order. Please try again later.");
+    }
+  };
+  
+
   return (
     <div className="flex flex-col lg:flex-row justify-between p-8 bg-gray-100 min-h-screen">
       {/* Left Side: Billing Information */}
       <div className="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-6">Billing Information</h2>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    
           <div className="w-full">
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="firstName"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               First Name
             </label>
             <input
@@ -89,11 +122,16 @@ const Checkout = () => {
               placeholder="First Name"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.firstName && <p className="text-red-500 text-sm">First name is required</p>}
+            {formErrors.firstName && (
+              <p className="text-red-500 text-sm">First name is required</p>
+            )}
           </div>
 
           <div className="w-full">
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="lastName"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Last Name
             </label>
             <input
@@ -104,11 +142,16 @@ const Checkout = () => {
               placeholder="Last Name"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.lastName && <p className="text-red-500 text-sm">Last name is required</p>}
+            {formErrors.lastName && (
+              <p className="text-red-500 text-sm">Last name is required</p>
+            )}
           </div>
 
           <div className="w-full md:col-span-2">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Email
             </label>
             <input
@@ -119,12 +162,16 @@ const Checkout = () => {
               placeholder="Email"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.email && <p className="text-red-500 text-sm">Email is required</p>}
+            {formErrors.email && (
+              <p className="text-red-500 text-sm">Email is required</p>
+            )}
           </div>
 
-  
           <div className="w-full md:col-span-2">
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Phone Number
             </label>
             <input
@@ -135,11 +182,16 @@ const Checkout = () => {
               placeholder="Phone Number"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.phone && <p className="text-red-500 text-sm">Phone number is required</p>}
+            {formErrors.phone && (
+              <p className="text-red-500 text-sm">Phone number is required</p>
+            )}
           </div>
 
           <div className="w-full md:col-span-2">
-            <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="address"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Address
             </label>
             <input
@@ -150,12 +202,16 @@ const Checkout = () => {
               placeholder="Address"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.address && <p className="text-red-500 text-sm">Address is required</p>}
+            {formErrors.address && (
+              <p className="text-red-500 text-sm">Address is required</p>
+            )}
           </div>
 
-     
           <div className="w-full">
-            <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="city"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               City
             </label>
             <input
@@ -166,12 +222,16 @@ const Checkout = () => {
               placeholder="City"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.city && <p className="text-red-500 text-sm">City is required</p>}
+            {formErrors.city && (
+              <p className="text-red-500 text-sm">City is required</p>
+            )}
           </div>
 
-
           <div className="w-full">
-            <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="zipCode"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Zip Code
             </label>
             <input
@@ -182,24 +242,27 @@ const Checkout = () => {
               placeholder="Zip Code"
               className="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
             />
-            {formErrors.zipCode && <p className="text-red-500 text-sm">Zip code is required</p>}
+            {formErrors.zipCode && (
+              <p className="text-red-500 text-sm">Zip code is required</p>
+            )}
           </div>
         </form>
         <button
-  onClick={placeOrder}
-  className="w-full mt-6 bg-black text-white py-3 rounded-md hover:bg-gray-800 focus:outline-none"
->
-  Place Order
-</button>
-
+          onClick={placeOrder}
+          className="w-full mt-6 bg-black text-white py-3 rounded-md hover:bg-gray-800 focus:outline-none"
+        >
+          Place Order
+        </button>
       </div>
 
-   
       <div className="w-full lg:w-1/3 bg-white p-6 rounded-lg shadow-lg mt-6 lg:mt-0">
         <h2 className="text-2xl font-semibold mb-6">Order Summary</h2>
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
-            <div key={item._id} className="flex items-center justify-between border-b pb-4 mb-4">
+            <div
+              key={item._id}
+              className="flex items-center justify-between border-b pb-4 mb-4"
+            >
               <div className="w-20 h-20">
                 {item.image && (
                   <Image

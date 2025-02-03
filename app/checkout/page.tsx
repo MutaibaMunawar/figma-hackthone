@@ -72,6 +72,10 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = async () => {
+    // if (validateForm()) {
+    //   localStorage.removeItem("appliedDiscount");
+    //   alert("Order Placed Successfully!");
+    // }
     const total = subTotal - discount;  
   
     const orderData = {
@@ -96,7 +100,7 @@ const Checkout = () => {
       localStorage.removeItem("AppliedDiscount");
     }catch(error) {
       console.error("Error placing order: ", error);
-      alert("Failed to place order. Please try again later.");
+      // alert("Failed to place order. Please try again later.");
     }
   };
   
@@ -248,7 +252,10 @@ const Checkout = () => {
           </div>
         </form>
         <button
-          onClick={placeOrder}
+          onClick={()=>{
+            handlePlaceOrder()
+            placeOrder()
+          }}
           className="w-full mt-6 bg-black text-white py-3 rounded-md hover:bg-gray-800 focus:outline-none"
         >
           Place Order

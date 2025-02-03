@@ -19,6 +19,11 @@ export default {
       type: "string",
     },
     {
+      name: "discount",
+      title: "Discount",
+      type: "number",
+    },
+    {
       name: "address",
       title: "Address",
       type: "string",
@@ -51,7 +56,7 @@ export default {
     },
     {
       name: "status",
-      title: "Status",
+      title: "order Status",
       type: "string",
       options: {
         list: [

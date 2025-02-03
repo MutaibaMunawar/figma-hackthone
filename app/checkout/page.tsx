@@ -72,10 +72,7 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = async () => {
-    // if (validateForm()) {
-    //   localStorage.removeItem("appliedDiscount");
-    //   alert("Order Placed Successfully!");
-    // }
+
     const total = subTotal - discount;  
   
     const orderData = {
@@ -100,7 +97,6 @@ const Checkout = () => {
       localStorage.removeItem("AppliedDiscount");
     }catch(error) {
       console.error("Error placing order: ", error);
-      // alert("Failed to place order. Please try again later.");
     }
   };
   

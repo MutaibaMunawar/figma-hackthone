@@ -7,7 +7,7 @@ const Headertop = () => {
             <div className="w-6 h-6">
                 <Image src={"/nike logo.png"} alt="" width={600} height={600} className="w-full h-full object-contain" />
             </div>
-            <div className="flex justify-center items-center gap-4 text-xs font-medium text-black">   
+            <div className="flex justify-center items-center gap-4 text-xs font-medium ">   
                 <Link href={"/"}>Find a Store</Link> | 
                 <Link href={"/help"}>Help</Link> | 
                 <Link href={"/joinUs"}>Join Us</Link> | 

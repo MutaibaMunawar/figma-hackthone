@@ -19,7 +19,7 @@ export default {
       type: "string",
     },
     {
-      name: "discount",
+      name: "Discount",
       title: "Discount",
       type: "number",
     },

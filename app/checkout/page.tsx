@@ -72,7 +72,6 @@ const Checkout = () => {
 
   const handlePlaceOrder = async () => {
     const total = subTotal - discount;
-
     const orderData = {
       _type: "order",
       firstName: formValues.firstName,
@@ -97,7 +96,6 @@ const Checkout = () => {
       console.error("Error placing order: ", error);
     }
   };
-
   return (
     <div className="flex flex-col lg:flex-row justify-between p-8 bg-gray-100 min-h-screen">
       {/* Left Side: Billing Information */}
@@ -245,7 +243,7 @@ const Checkout = () => {
           </div>
         </form>
         <button
-          onClick={() => {
+           onClick={() => {
             handlePlaceOrder();
             placeOrder();
           }}

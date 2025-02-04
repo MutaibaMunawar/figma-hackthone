@@ -5,8 +5,7 @@ import React, { useEffect, useState } from "react";
 import { getCartItems } from "../actions/actions";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import {client} from "@/sanity/lib/client"; 
-
+import { client } from "@/sanity/lib/client";
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -72,9 +71,8 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = async () => {
+    const total = subTotal - discount;
 
-    const total = subTotal - discount;  
-  
     const orderData = {
       _type: "order",
       firstName: formValues.firstName,
@@ -88,18 +86,17 @@ const Checkout = () => {
         _type: "reference",
         _ref: item._id,
       })),
-      total: total, 
+      total: total,
       discount: discount,
-      orderData: new Date().toISOString(),  
+      orderData: new Date().toISOString(),
     };
     try {
       await client.create(orderData);
       localStorage.removeItem("AppliedDiscount");
-    }catch(error) {
+    } catch (error) {
       console.error("Error placing order: ", error);
     }
   };
-  
 
   return (
     <div className="flex flex-col lg:flex-row justify-between p-8 bg-gray-100 min-h-screen">
@@ -248,9 +245,9 @@ const Checkout = () => {
           </div>
         </form>
         <button
-          onClick={()=>{
-            handlePlaceOrder()
-            placeOrder()
+          onClick={() => {
+            handlePlaceOrder();
+            placeOrder();
           }}
           className="w-full mt-6 bg-black text-white py-3 rounded-md hover:bg-gray-800 focus:outline-none"
         >

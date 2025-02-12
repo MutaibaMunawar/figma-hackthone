@@ -18,7 +18,7 @@ const Home = () => {
           </p>
         </div>
   
-        {/* Image Section */}
+        {/* Image */}
         <div className="relative">
           <Image
             src="/home shoes.svg"
@@ -28,8 +28,7 @@ const Home = () => {
             className="h-[620px] w-[1300]"
           />
         </div>
-  
-        {/* Section 2 - Nike Air Max Pulse */}
+
         <div className="relative top-[50px] left-0 bg-white px-4 py-4">
           <h1
             className="text-[40px] font-medium leading-[60px] text-center"
@@ -55,22 +54,16 @@ const Home = () => {
           </p>
         </div>
   
-        {/* Button Section */}
+        {/* Button  */}
         <div className="flex flex-col sm:flex-row space-x-4 mt-[50px] py-4 bg-white justify-center px-4">
-          {/* Notify Me Button */}
           <button className="px-6 py-2 rounded-full bg-black text-white font-medium hover:bg-gray-800 transition">
             Notify Me
           </button>
-          {/* Shop Air Max Button */}
           <button className="px-6 py-2 rounded-full bg-black text-white font-medium hover:bg-gray-800 transition">
             Shop Air Max
           </button>
         </div>
   
-       
-  
-     
-          
       </main>
       
     );

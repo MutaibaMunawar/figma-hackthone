@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Product } from "@/types/products";
 import React, { useEffect, useState } from "react";
 import {
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import AuthGuard from "../components/AuthGuard";
 
 const Cartpage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -63,6 +64,7 @@ const Cartpage = () => {
   };
 
   return (
+    <AuthGuard>
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg p-6">
      
@@ -152,6 +154,7 @@ const Cartpage = () => {
         )}
       </div>
     </div>
+    </AuthGuard>
   );
 };
 

@@ -4,13 +4,13 @@ export default function Feature() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Section Title */}
+ 
         <h2 className="text-lg sm:text-xl font-semibold text-black mb-4">Featured</h2>
 
-        {/* Image Section */}
+        {/* Image */}
         <div className="relative">
           <Image
-            src="/feature.png" // Replace with your image in the public folder
+            src="/feature.png" 
             alt="Runner"
             width={700}
             height={700}
@@ -18,7 +18,7 @@ export default function Feature() {
           />
         </div>
 
-        {/* Text Section */}
+ 
         <div className="text-center mt-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
             STEP INTO WHAT FEELS GOOD

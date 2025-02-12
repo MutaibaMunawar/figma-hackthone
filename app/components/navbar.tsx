@@ -7,19 +7,21 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-6 py-3 bg-white shadow-md font-roboto">
+    <header className="flex items-center justify-between px-6 py-3 bg-white shadow-md font-roboto relative z-10">
       {/* Logo */}
       <div className="flex items-center space-x-4">
-        <Image
-          src="/Nike-Logo.png"
-          alt="Nike Logo"
-          width={40}
-          height={40}
-          className="h-[40px] w-[40px] md:h-[70.47px] md:w-[70.47px]"
-        />
-      </div>
+  <Link href="/" >
+    <Image
+      src="/Nike-Logo.png"
+      alt="Nike Logo"
+      width={40}
+      height={40}
+      className="h-[40px] w-[40px] md:h-[70.47px] md:w-[70.47px]"
+    />
+  </Link>
+</div>
 
-      {/* Navigation Links */}
+
       <nav className="hidden md:flex space-x-6">
         <Link href="/new">New & Featured</Link>
         {[
@@ -37,7 +39,7 @@ export default function Navbar() {
         ))}
       </nav>
 
-      {/* Icons (Search, Heart, Cart) */}
+      {/* Icons */}
       <div className="flex items-center space-x-4">
         {/* Search Bar */}
         <div className="relative hidden md:block">
@@ -57,23 +59,23 @@ export default function Navbar() {
 
         {/* Heart Icon */}
         <Link href="/wishlist" passHref>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-gray-700 hover:text-black"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.84 4.61a5.5 5.5 0 00-7.78 0l-.35.35-.35-.35a5.5 5.5 0 00-7.78 7.78l8.13 8.14a.75.75 0 001.06 0l8.13-8.14a5.5 5.5 0 000-7.78z"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-gray-700 hover:text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0l-.35.35-.35-.35a5.5 5.5 0 00-7.78 7.78l8.13 8.14a.75.75 0 001.06 0l8.13-8.14a5.5 5.5 0 000-7.78z"
+            />
+          </svg>
         </Link>
 
-        {/* Cart Icon with Link */}
+        {/* Cart Icon  */}
         <Link href="/cart_cart" passHref>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -91,8 +93,6 @@ export default function Navbar() {
           </svg>
         </Link>
       </div>
-
-      {/* Mobile Menu Button */}
       <button
         className="block md:hidden"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -115,7 +115,27 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden z-50">
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-4 right-4 text-gray-700 hover:text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
           <nav className="flex flex-col items-center py-4 space-y-2 font-roboto">
             {[
               { name: "New & Featured", link: "/new" },

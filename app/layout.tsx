@@ -4,6 +4,13 @@ import "./globals.css";
 import Header from "./components/header/page";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import {
+  ClerkProvider,
+  // SignInButton,
+  // SignedIn,
+  // SignedOut,
+  // UserButton
+} from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}>
     <html lang="en">
       <body className={inter.className}>
-  
         <Header />
         <Navbar />
         {children}
         <Footer />
       </body>
     </html>
+    </ClerkProvider>
   );
 }

@@ -30,7 +30,7 @@ const Login = () => {
       >
         {/* Display Nike Logo */}
         <Image
-          src="/nike-logo.png"
+          src="/Nike-Logo.png"
           alt="Nike Logo"
           width={50}
           height={50}

@@ -1,19 +1,19 @@
 'use client'
 
 import { client } from "@/sanity/lib/client";
-import { four } from "@/sanity/lib/queries";
+import { fourFive } from "@/sanity/lib/queries"; 
 import { Product } from "@/types/products";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image"
+import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link"; 
 import { useEffect, useState } from "react";
 
-export const BestAirMax = () => {
+const Mens = () => { 
   const [product, setProduct] = useState<Product[]>([]);
 
   useEffect(() => {
     async function fetchProduct() {
-      const fetchedProduct: Product[] = await client.fetch(four);
+      const fetchedProduct: Product[] = await client.fetch(fourFive);
       setProduct(fetchedProduct);
     }
     fetchProduct();
@@ -22,7 +22,7 @@ export const BestAirMax = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 text-center">
-        Best of Air Max
+        Men&apos;s Collection
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -54,3 +54,5 @@ export const BestAirMax = () => {
     </div>
   );
 };
+
+export default Mens;

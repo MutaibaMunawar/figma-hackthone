@@ -24,8 +24,9 @@ export default function Navbar() {
 
       <nav className="hidden md:flex space-x-6">
         <Link href="/new">New & Featured</Link>
+        <Link href="/mens">Men&apos;s</Link>
         {[
-          { name: "Men", link: "/men" },
+          // { name: "Men", link: "/men" },
           { name: "Women", link: "/women" },
           { name: "Kids", link: "/kids" },
           { name: "Sale", link: "/sale" },
